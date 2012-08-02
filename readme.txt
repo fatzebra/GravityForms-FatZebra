@@ -29,8 +29,14 @@ The source for this plugin can be found at https://github.com/fatzebra/GravityFo
 
 Testing details can be found at https://www.fatzebra.com.au/help/testing
 
+== Screenshots ==
+
+1. Fat Zebra Settings page
 
 == Changelog ==
+
+= 0.1.2 =
+* Updated to support single products with quantities
 
 = 0.1.1 =
 * Initial release, supports single product payments only
