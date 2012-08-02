@@ -4,7 +4,7 @@ Donate link: https://www.fatzebra.com.au/
 Tags: forms, fatzebra, payments, gravity forms, credit card payments
 Requires at least: 3.2
 Tested up to: 3.2
-Stable tag: 0.1.1
+Stable tag: 0.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,6 +34,9 @@ Testing details can be found at https://www.fatzebra.com.au/help/testing
 1. Fat Zebra Settings page
 
 == Changelog ==
+
+= 0.1.4 =
+* Fixed bug where amount was not being passed properly
 
 = 0.1.2 =
 * Updated to support single products with quantities
