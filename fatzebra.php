@@ -301,12 +301,14 @@ class GFFatZebra
      */
     public static function fatzebra_validation($validation_result)
     {
+        $form = $validation_result["form"];
         $fields = GFCommon::get_fields_by_type( $form, array( 'creditcard' ) );
+
         if (empty($fields)) {
             return $validation_result;
         }
         else {
-            if(RGFormsModel::is_field_hidden( $validation_result[ "form" ], $fields[0], array())) {
+            if(RGFormsModel::is_field_hidden( $form, $fields[0], array())) {
                 return $validation_result;
             } else {
                 return self::make_product_payment($validation_result);
@@ -321,7 +323,6 @@ class GFFatZebra
      * @return array|WP_Error
      */
     private static function do_payment($params, $settings) {
-
         $sandbox_mode = $settings["sandbox_mode"];
         $test_mode = $settings["test_mode"];
 
@@ -414,17 +415,23 @@ class GFFatZebra
      * @return array
      */
     private static function extract_product_details($field) {
-        $values = array("amount" => 0);
+        $amount = 0;
+        $quantity = 0;
+
         foreach($field["inputs"] as &$input) {
             switch($input["label"]) {
-                case "Price": // At the moment we only support a single 'line'
+                case "Price":
                     $raw = rgpost("input_" . str_replace(".", "_", $input["id"]));
-                    $values["amount"] += (int)(floatval(str_replace("$", "", $raw)) * 100);
+                    $amount += (int)(floatval(str_replace("$", "", $raw)) * 100);
                     break;
+
+                case "Quantity":
+                    $raw = rgpost("input_" . str_replace(".", "_", $input["id"]));
+                    $quantity = (int)$raw;
             }
         }
 
-        return $values;
+        return array("total" => $amount * $quantity);
     }
 
     /**
