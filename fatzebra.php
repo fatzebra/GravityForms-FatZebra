@@ -113,8 +113,8 @@ class GFFatZebra
             $settings = array(
                 'username' => $_POST['fatzebra_username'],
                 'token' => $_POST['fatzebra_token'],
-                'test_mode' => $_POST['fatzebra_test_mode'],
-                'sandbox_mode' => $_POST['fatzebra_sandbox_mode']
+                'test_mode' => (bool)$_POST['fatzebra_test_mode'],
+                'sandbox_mode' => (bool)$_POST['fatzebra_sandbox_mode']
             );
 
 
@@ -135,7 +135,11 @@ class GFFatZebra
             <?php } ?>
 
             <p style="text-align: left;">
-                <?php _e(sprintf("Fat Zebra is an Australian Payment Gateway which allows you to accept credit card payments online. Use Gravity Forms to collect payment information and automatically integrate to your client's Fat Zebra account. If you don't have a Fat Zebra account, you can %ssign up for one here%s", "<a href='https://www.fatzebra.com.au' target='_blank'>", "</a>"), 'gravityforms-fatzebra') ?>
+                <?php _e("Fat Zebra is an Australian Payment Gateway which allows you to accept credit card payments online.<br /> Use Gravity Forms to collect payment information and automatically integrate to your client's Fat Zebra account.", "gravityforms-fatzebra"); ?>
+            </p>
+
+            <p style="text-align: left;">
+                <?php _e(sprintf("If you don't have a Fat Zebra account, you can %ssign up for one here%s", "<a href='https://www.fatzebra.com.au' target='_blank'>", "</a>"), 'gravityforms-fatzebra'); ?>
             </p>
 
             <table class="form-table">
@@ -169,7 +173,7 @@ class GFFatZebra
                             <option value="0"<?php echo $settings["test_mode"] ? "" : " selected='selected'"; ?>>No</option>
                         </select>
                         <br/>
-                        <small><?php _e("What is the difference between <strong>Test Mode</strong> and <strong>Sandbox Mode</strong>? <a href='https://www.fatzebra.com.au/help/testing#modes' target='_blank'>Find out here</a>", "gravityforms-fatzebra") ?></small>
+                        <small><?php _e("What is the difference between <strong>Test Mode</strong> and <strong>Sandbox Mode</strong>? <a href='https://www.fatzebra.com.au/support/testing#modes' target='_blank'>Find out here</a>", "gravityforms-fatzebra") ?></small>
                     </td>
                 </tr>
 
@@ -324,8 +328,10 @@ class GFFatZebra
      */
     private static function do_payment($params, $settings) {
 
-        $sandbox_mode = $settings["sandbox_mode"];
-        $test_mode = $settings["test_mode"];
+        $sandbox_mode = (bool)$settings["sandbox_mode"];
+        $test_mode = (bool)$settings["test_mode"];
+
+        $params["test"] = $test_mode;
 
         $order_text = json_encode($params);
 
