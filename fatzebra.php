@@ -464,7 +464,7 @@ class GFFatZebra
             }
         }
 
-        $details["reference"] = strtoupper(uniqid('GF-', true));
+        $details["reference"] = strtoupper(uniqid('GF-'));
         $details["customer_ip"] = $_SERVER['REMOTE_ADDR'];
 
         $settings = get_option('gf_fatzebra_settings');

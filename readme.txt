@@ -4,7 +4,7 @@ Donate link: https://www.fatzebra.com.au/
 Tags: forms, fatzebra, payments, gravity forms, credit card payments
 Requires at least: 3.2
 Tested up to: 3.2
-Stable tag: 0.1.5
+Stable tag: 0.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +36,9 @@ Testing details can be found at https://www.fatzebra.com.au/support/testing
 2. Example form (Booking Form)
 
 == Changelog ==
+
+= 0.1.6 = 
+* Reduced amount of entropy used in transaction reference generation, causing problems with upstream processor.
 
 = 0.1.5 =
 * Fixed handling of test mode flag
