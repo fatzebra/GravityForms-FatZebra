@@ -3,7 +3,7 @@
 Plugin Name: Gravity Forms Fat Zebra Add-On
 Plugin URI: http://github.com/fatzebra/GravityForms-FatZebra
 Description: Accept credit card payments through Gravity Forms, simply with Fat Zebra
-Version: 1.0.1
+Version: 0.2.1
 Author: Matthew Savage
 Author URI: https://www.fatzebra.com.au
 
@@ -27,7 +27,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
 
 
-define( 'GF_FZ_VERSION', '1.0.1' );
+define( 'GF_FZ_VERSION', '0.2.1' );
 
 add_action( 'gform_loaded', array( 'GF_FatZebra_Bootstrap', 'load' ), 5 );
 

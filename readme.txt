@@ -3,8 +3,8 @@ Contributors: fatzebra
 Donate link: https://www.fatzebra.com.au/
 Tags: forms, fatzebra, payments, gravity forms, credit card payments
 Requires at least: 3.2
-Tested up to: 3.2
-Stable tag: 0.2.0
+Tested up to: 4.6
+Stable tag: 0.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,10 +37,13 @@ Testing details can be found at https://www.fatzebra.com.au/support/testing
 
 == Changelog ==
 
+= 0.2.1 =
+* Fixed missing init call.
+
 = 0.2.0 =
 * Updated to support GFPaymentAddon integration method
 
-= 0.1.6 = 
+= 0.1.6 =
 * Reduced amount of entropy used in transaction reference generation, causing problems with upstream processor.
 
 = 0.1.5 =
