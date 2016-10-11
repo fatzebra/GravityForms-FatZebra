@@ -183,14 +183,5 @@ if (class_exists("GFForms")) {
               //return $error;
           }
       }
-      private static $_instance = null;
-
-  	public static function get_instance() {
-  	if ( self::$_instance == null ) {
-  	self::$_instance = new GFFatZebra();
-  	}
-
-  	return self::$_instance;
-  	}
   }
 }
